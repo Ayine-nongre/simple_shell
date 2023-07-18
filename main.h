@@ -12,7 +12,7 @@
 
 char *_strncat(char *dest, char *src, int n);
 char *check_path(char *path);
-void _printenv(char **env);
+void _printenv(char **env, char **cmd_line);
 char *_strtok(char *str, const char *delim);
 
 #endif
