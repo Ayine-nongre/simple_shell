@@ -10,24 +10,24 @@
 
 int execute(char **cmd_line, char *command, char **env)
 {
-	char *buff, *argv[4];
+	char *buff, *argv[100];
 	int status, i;
 	pid_t child_pid = 1;
 	struct stat st;
 
-	argv[0] = _strtok(command, " \t\v\b\r\n");
+	argv[0] = strtok(command, " \t\v\b\r\n");
 	i = 0;
-	while (argv[i] != NULL && i < 3)
+	while (argv[i] != NULL && i < 99)
 	{
 		i++;
-		argv[i] = _strtok(NULL, " \t\v\b\r\n");
+		argv[i] = strtok(NULL, " \t\v\b\r\n");
 	}
 	argv[i + 1] = NULL;
 
 	buff = check_path(argv[0]);
 
 	if (strcmp(argv[0], "env") == 0)
-		_printenv(env);
+		_printenv(env, cmd_line);
 	if (stat(buff, &st) != 0)
 		perror(cmd_line[0]);
 	else
