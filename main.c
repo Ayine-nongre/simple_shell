@@ -40,7 +40,6 @@ int execute(char **cmd_line, char *command, char **env)
 
 	if (child_pid == 0)
 	{
-		argv[0] = buff;
 		if (execve(buff, argv, NULL) == -1)
 			perror(cmd_line[0]);
 	}
@@ -60,6 +59,7 @@ int loop(char **cmd_line, char **env)
 {
 	char *command = NULL, *prompt = "$ ";
 	size_t n = 0;
+	int input = 0;
 
 	while (1)
 	{
@@ -72,8 +72,13 @@ int loop(char **cmd_line, char **env)
 			}
 		}
 
-		if (getline(&command, &n, stdin) == -1)
+		input = getline(&command, &n, stdin);
+
+		if (input == -1)
 			break;
+
+		if (input == 1 && command[0] == '\n')
+			continue;
 
 		execute(cmd_line, command, env);
 
