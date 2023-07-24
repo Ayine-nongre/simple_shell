@@ -12,7 +12,9 @@
 
 char *_strncat(char *dest, char *src, int n);
 char *check_path(char *path);
+char *check_path1(char *path);
 void _printenv(char **env, char **cmd_line);
 char *_strtok(char *str, const char *delim);
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 
 #endif
