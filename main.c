@@ -35,6 +35,8 @@ int execute(char **argv)
 
 	if (_strcmp(argv[0], "exit") == 0)
 		__exit(argv[1]);
+	if (_strcmp(argv[0], "env") == 0)
+                _printenv();
 
 	if (stat(buff, &st) != 0)
 	{

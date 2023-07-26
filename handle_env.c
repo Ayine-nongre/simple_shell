@@ -5,7 +5,7 @@
  * @cmd_line: command line arguments
  */
 
-void _printenv(char **cmd_line)
+void _printenv()
 {
 	unsigned int i, j;
 	char **env = environ;
@@ -18,16 +18,9 @@ void _printenv(char **cmd_line)
 		while (env[i][j] != '\0')
 			j++;
 
+		write(STDOUT_FILENO, env[i], j);
 
-		if (write(STDOUT_FILENO, env[i], j) == -1)
-		{
-			perror(cmd_line[0]);
-		}
-
-		if (write(STDOUT_FILENO, newline, 1) == -1)
-		{
-			perror(cmd_line[0]);
-		}
+		write(STDOUT_FILENO, newline, 1);
 		i++;
 	}
 }
