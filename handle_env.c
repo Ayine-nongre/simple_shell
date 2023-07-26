@@ -2,25 +2,16 @@
 
 /**
  * _printenv - prints the environment variables
- * @cmd_line: command line arguments
  */
 
-void _printenv()
+void _printenv(void)
 {
-	unsigned int i, j;
-	char **env = environ;
-	char *newline = "\n";
+	int i = 0;
 
-	i = 0;
-	while (env[i] != NULL)
+	while (environ[i] != NULL)
 	{
-		j = 0;
-		while (env[i][j] != '\0')
-			j++;
-
-		write(STDOUT_FILENO, env[i], j);
-
-		write(STDOUT_FILENO, newline, 1);
+		write(STDOUT_FILENO, environ[i], strlen(environ[i]));
+		write(STDOUT_FILENO, "\n", 1);
 		i++;
 	}
 }
