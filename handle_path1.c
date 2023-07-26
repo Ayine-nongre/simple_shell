@@ -1,30 +1,37 @@
 #include "main.h"
 
-char *check_path1(char *cmd){
-    char *path = getenv("PATH");
-    char *ptr = strdup(path);
-    char full_path[1024];
-    char *data;
-    struct stat st;
-    
+/**
+ * check_path1 - handles the path entered
+ * @cmd: path to handle
+ * Return: string value
+ */
 
-    data = strtok(ptr, ":");
+char *check_path1(char *cmd)
+{
+	char *path = getenv("PATH");
+	char *ptr = strdup(path);
+	char full_path[1024];
+	char *data;
+	struct stat st;
 
-    while (data)
-    {
-        strcpy(full_path, data);
-        strcat(full_path, "/");
-        strcat(full_path, cmd);
 
-        if (stat(full_path, &st) == 0)
-        {
-            cmd = full_path;
-	    free(ptr);
-            return (cmd);
-        }
+	data = strtok(ptr, ":");
 
-        data = strtok(NULL, ":");
-    }
+	while (data)
+	{
+		strcpy(full_path, data);
+		strcat(full_path, "/");
+		strcat(full_path, cmd);
 
-    return (cmd);
+		if (stat(full_path, &st) == 0)
+		{
+			cmd = full_path;
+			free(ptr);
+			return (cmd);
+		}
+
+		data = strtok(NULL, ":");
+	}
+
+	return (cmd);
 }
