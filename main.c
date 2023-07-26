@@ -85,7 +85,6 @@ int loop(char **cmd_line)
 				return (1);
 			}
 		}
-
 		input = getline(&command, &n, stdin);
 		if (input == -1)
 			break;
@@ -102,7 +101,6 @@ int loop(char **cmd_line)
 			argv[i] = strtok(NULL, " \t\v\b\r\n");
 		}
 		argv[i + 1] = NULL;
-
 
 		err_code = execute(argv);
 		if (err_code != EXIT_SUCCESS)

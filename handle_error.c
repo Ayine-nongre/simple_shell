@@ -6,7 +6,8 @@
  * Return: string value
  */
 
-char *to_str(int num) {
+char *to_str(int num)
+{
 	char *string;
 	char *temp;
 	int i, len;
@@ -15,19 +16,20 @@ char *to_str(int num) {
 	if (!string)
 		exit(1);
 
-	if (num == 0) {
+	if (num == 0)
+	{
 		string[0] = '0';
 		string[1] = '\0';
 		return (string);
 	}
 
-	for (i = 0; num; i++) {
+	for (i = 0; num; i++)
+	{
 		string[i] = '0' + (num % 10);
 		num /= 10;
 	}
 	string[i] = '\0';
 
-	/* Reverse the string */
 	temp = strdup(string);
 	len = strlen(string);
 	for (i = 0; --len >= 0; ++i)
