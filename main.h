@@ -15,12 +15,12 @@
 extern char **environ;
 extern int errno;
 
-/*********string manipulation functions****************/
+/*********string manipulation functions**************/
 char *_strncat(char *dest, char *src, int n);
 int _strcmp(char *s1, char *s2);
 char *to_str(int num);
 
-/*********shell handling functions********************/
+/*********shell handling functions******************/
 char *check_path(char *path);
 void _printenv(char **cmd_line);
 void err_msg(char *err);
