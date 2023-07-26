@@ -23,7 +23,7 @@ int _strcmp(char *s1, char *s2);
 char *check_path(char *path);
 void _printenv(char **cmd_line);
 void err_msg(char *err);
-void err_printer(char *cmd_line, char *cmd);
+void err_printer(char *cmd_line, char *cmd, int count);
 void __exit(char *stat);
 bool isEmptySpaces(char *cmd);
 int execute(char **argv);
