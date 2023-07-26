@@ -9,12 +9,24 @@
 #include <string.h>
 #include <stdbool.h>
 #include <fcntl.h>
+#include <ctype.h>
+#include <errno.h>
 
+extern char **environ;
+extern int errno;
+
+/*********string manipulation functions****************/
 char *_strncat(char *dest, char *src, int n);
+int _strcmp(char *s1, char *s2);
+
+/*********shell handling functions********************/
 char *check_path(char *path);
-char *check_path1(char *path);
-void _printenv(char **env, char **cmd_line);
-char *_strtok(char *str, const char *delim);
-ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
+void _printenv(char **cmd_line);
+void err_msg(char *err);
+void err_printer(char *cmd_line, char *cmd);
+void __exit(char *stat);
+bool isEmptySpaces(char *cmd);
+int execute(char **argv);
+int loop(char **cmd_line);
 
 #endif

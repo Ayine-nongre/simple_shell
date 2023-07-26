@@ -2,13 +2,13 @@
 
 /**
  * _printenv - prints the environment variables
- * @env: environment variable
  * @cmd_line: command line arguments
  */
 
-void _printenv(char **env, char **cmd_line)
+void _printenv(char **cmd_line)
 {
 	unsigned int i, j;
+	char **env = environ;
 	char *newline = "\n";
 
 	i = 0;

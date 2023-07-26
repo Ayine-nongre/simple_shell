@@ -27,7 +27,7 @@ char *check_path(char *path)
 	}
 
 	if (test == 0)
-		return (strncat(str, path, j));
+		return (_strncat(str, path, j));
 
 	return (path);
 }
