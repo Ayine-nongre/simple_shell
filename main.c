@@ -31,7 +31,7 @@ int execute(char **argv)
 	pid_t child_pid = 1;
 	struct stat st;
 
-	buff = check_path(argv[0]);
+	buff = check_path1(argv[0]);
 
 	if (_strcmp(argv[0], "exit") == 0)
 		__exit(argv[1]);

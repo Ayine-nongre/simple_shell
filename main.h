@@ -22,6 +22,7 @@ char *to_str(int num);
 
 /*********shell handling functions********************/
 char *check_path(char *path);
+char *check_path1(char *cmd);
 void _printenv(char **cmd_line);
 void err_msg(char *err);
 void err_printer(char *cmd_line, char *cmd, int count);

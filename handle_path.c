@@ -9,7 +9,7 @@
 char *check_path(char *path)
 {
 	char str[1024] = "/bin/";
-	int i = 0, j = 0, n;
+	int i = 0, j = 0, n = 0;
 	bool test = 1;
 
 	while (*(str + i) != '\0')
