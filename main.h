@@ -14,6 +14,8 @@
 
 extern char **environ;
 extern int errno;
+char *command;
+int count;
 
 /*********string manipulation functions****************/
 char *_strncat(char *dest, char *src, int n);

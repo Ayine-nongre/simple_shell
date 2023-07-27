@@ -7,13 +7,12 @@
 
 void __exit(char *stat)
 {
-	int status;
+	int status = 0;
 
-	if (stat == NULL)
-		exit(0);
-	else
+	if (stat != NULL)
 	{
 		status = atoi(stat);
-		exit(status);
 	}
+	free(command);
+	exit(status);
 }

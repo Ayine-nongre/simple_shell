@@ -74,11 +74,12 @@ int execute(char **argv)
 
 int loop(char **cmd_line)
 {
-	char *command = NULL, *prompt = "$ ", *argv[100];
+	char *prompt = "$ ", *argv[100];
 	size_t n = 0;
 	int input = 0, i, err_code = 0;
-	int count = 0;
 
+	command = NULL;
+	count = 0;
 	while (1)
 	{
 		count++;
@@ -110,7 +111,6 @@ int loop(char **cmd_line)
 		err_code = execute(argv);
 		if (err_code != EXIT_SUCCESS)
 			err_printer(cmd_line[0], argv[0], count);
-
 	}
 	free(command);
 	return (0);
